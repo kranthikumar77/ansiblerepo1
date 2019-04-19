@@ -5,7 +5,7 @@
   - name: install git,tree,wget on nodes
     apt:
      name: "{{item}}"
-     state: present\
+     state: present
     with_items:
     - git
     - tree
