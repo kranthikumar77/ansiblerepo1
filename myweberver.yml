@@ -10,7 +10,7 @@
   - name: start the service  
     service:   
      name: apache2
-     service: restarted
+     service: started
     when: ansible_os_family=="Debian"
   - name: install webserver() on redhat7
     yum:
@@ -20,7 +20,7 @@
   - name: start the service 
     service:
       name: httpd
-      service: restarted
+      service: started
     when: ansible_os_family=="RedHat"  
 
        
