@@ -2,12 +2,12 @@
   - hosts: webservers
     become: yes
     tasks:
-    - name: install java6 on ubuntu14
+    - name: uninstall java6 on ubuntu14
       apt: 
        name: "{{javaonubuntu}}"
        state: present
       when: ansible_os_family=="Debian"
-    - name: install java6 on redhat7
+    - name: uninstall java6 on redhat7
       yum: 
        name: "{{javaonredhat}}"
        state: present
