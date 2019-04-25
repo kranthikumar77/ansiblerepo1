@@ -1,2 +1,28 @@
 ---
-# tasks file for mytominstall
+# tasks file for myinstall
+- name: install tomcat
+  yum:
+   name: tomcat
+   state: present
+- name: copy tom config file into all nodes
+  template:
+   src: templates:mytomconfig.j2
+   dest: /usr/share/tomcat/conf/tomcat.conf
+  notify: starttomcat
+- name: install admin packages
+  yum:
+    name: "{{name}}"
+    state: present
+  with_items:
+    -tomcat-webapps
+    -tomcat-admin-webapps
+- name: copy tom user file into all nodes
+  tempalte:
+    src: templates/mytomuser.j2
+    dest: /usr/share/tomcat/conf/tomcat-user.xml
+  notify: restarttomcat
+- name: i want to deploy kranthi war file into -tomcat-admin-webapps
+  get_url:
+   url: http://13.59.183.156:8081/artifactory/kranthikey1/1/target/raviLogin-1.0.war
+   dest: /usr/share/tomcat/webapps/raviLogin-1.0.war
+   force_basic_auth: yes
