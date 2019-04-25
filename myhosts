@@ -1,14 +1,14 @@
-[ubuntuhots]
+[ubuntuhosts]
 172.31.34.193
 
 
 [redhathosts]
-172.31.23.178
+172.31.42.62
 
 
 [webservers]
 172.31.34.193
-172.31.23.178
+172.31.42.62
 
 
 [ubuntuhosts:vars]
