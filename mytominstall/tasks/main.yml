@@ -1,5 +1,5 @@
 ---
-# tasks file for mytominstall
+#tasks file for mytominstall
 - name: install tomcat
   yum:
    name: tomcat
